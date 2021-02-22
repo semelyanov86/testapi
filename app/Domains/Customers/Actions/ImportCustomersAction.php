@@ -7,7 +7,7 @@ namespace Domains\Customers\Actions;
 use Domains\Customers\Tasks\CreateCustomersFromCollectionTask;
 use Domains\Customers\Tasks\GetCustomersFromApiTask;
 
-class ImportCustomersAction extends \Parents\Actions\Action
+final class ImportCustomersAction extends \Parents\Actions\Action
 {
     public function __construct(
         protected GetCustomersFromApiTask $importTask,

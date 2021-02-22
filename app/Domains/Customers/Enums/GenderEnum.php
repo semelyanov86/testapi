@@ -4,7 +4,7 @@
 namespace Domains\Customers\Enums;
 
 
-class GenderEnum extends \Parents\Enums\Enum
+final class GenderEnum extends \Parents\Enums\Enum
 {
     const MALE = 'male';
 

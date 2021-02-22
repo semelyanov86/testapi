@@ -2,9 +2,11 @@
 
 namespace Domains\Customers\Models;
 
+use Domains\Customers\Enums\GenderEnum;
 use Domains\Customers\Factories\CustomerFactory;
 use Illuminate\Support\Pluralizer;
 use Parents\Models\Model;
+use Parents\ValueObjects\PhoneNumberValueObject;
 
 final class Customer extends Model
 {

@@ -9,7 +9,7 @@ use Domains\Customers\Models\Customer;
 use Illuminate\Support\Carbon;
 use Parents\ValueObjects\PhoneNumberValueObject;
 
-class CustomerData extends \Parents\DataTransferObjects\ObjectData
+final class CustomerData extends \Parents\DataTransferObjects\ObjectData
 {
     public ?int $id;
 
@@ -49,10 +49,19 @@ class CustomerData extends \Parents\DataTransferObjects\ObjectData
 
     public static function createFromModel(Customer $customer): self
     {
-        $customerData = $customer->toArray();
-        $customerData['created_at'] = $customer->created_at;
-        $customerData['updated_at'] = $customer->updated_at;
-        return new self($customerData);
+        return new self([
+            'id' => $customer->id,
+            'first_name' => $customer->first_name,
+            'last_name' => $customer->last_name,
+            'email' => $customer->email,
+            'country' => $customer->country,
+            'city' => $customer->city,
+            'username' => $customer->username,
+            'gender' => GenderEnum::fromKey(strtoupper($customer->gender)),
+            'phone' => PhoneNumberValueObject::make($customer->phone, config('services.external-api.nat')),
+            'created_at' => $customer->created_at,
+            'updated_at' => $customer->updated_at
+        ]);
     }
 
     public function getFullName(): string
