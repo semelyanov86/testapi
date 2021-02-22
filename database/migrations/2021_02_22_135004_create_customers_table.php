@@ -13,12 +13,12 @@ class CreateCustomersTable extends Migration
 
             $table->string('first_name', 190);
             $table->string('last_name', 190);
-            $table->string('email', 100);
+            $table->string('email', 100)->unique();
             $table->string('country', 100)->default('Australia');
             $table->string('city', 100);
             $table->string('username', 100);
-            $table->enum('gender', ['male', 'female'])->default('male')->nullable();
-            $table->string('phone', 20)->nullable();
+            $table->enum('gender', ['MALE', 'FEMALE'])->default('MALE')->nullable();
+            $table->string('phone', 20);
 
             $table->timestamps();
         });
