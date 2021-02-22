@@ -5,7 +5,6 @@ namespace Domains\Customers\Http\Controllers;
 
 
 use Domains\Customers\Actions\GetAllCustomers;
-use Domains\Customers\Actions\ShowCustomerAction;
 use Domains\Customers\DataTransferObjects\CustomerData;
 use Domains\Customers\Models\Customer;
 use Domains\Customers\Transformers\CustomerFullDataTransformer;
